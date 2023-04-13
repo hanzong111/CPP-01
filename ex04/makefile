@@ -6,7 +6,7 @@
 #    By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/14 20:26:19 by ojing-ha          #+#    #+#              #
-#    Updated: 2023/03/08 01:06:01 by ojing-ha         ###   ########.fr        #
+#    Updated: 2023/04/13 17:31:25 by ojing-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,14 +20,14 @@ MAGENTA     = \033[0;95m
 CYAN         = \033[0;96m
 WHITE         = \033[0;97m
 
-NAME		= a.out
+NAME		= sed
 
 CC			= c++
 
 SRCS_DIR	= srcs/
 OBJS_DIR	= objs/
 
-CFLAGS	= -Wall -Werror -Wextra
+CFLAGS	= -Wall -Werror -Wextra -fsanitize=address -g3
 cFLAGS	+= -std=c++98
 
 SRC_FILES	= main\
@@ -38,16 +38,16 @@ OBJS	= $(addprefix $(OBJS_DIR), $(addsuffix .o, $(SRC_FILES)))
 
 all		:
 		@mkdir -p $(OBJS_DIR)
-		@echo "$(MAGENTA) --------------------------INSIDE PHONEBOOK-------------------------- $(CYAN)"
+		@echo "$(MAGENTA) --------------------------INSIDE SED-------------------------- $(CYAN)"
 		@echo "\n"
 		@make $(NAME)
-		@echo "$(YELLOW)Done Creating ./phonebook$(DEF_COLOR)"
+		@echo "$(YELLOW)Done Creating ./sed$(DEF_COLOR)"
 		@echo "\n"
 		@echo "$(GREEN) -------------$(RED)I $(CYAN)AM $(GREEN)DONE $(YELLOW)MADAFAKA$(GREEN)-------------------------- $(DEF_COLOR)"
 
 $(NAME)	: ${OBJS}
 		@${CC} ${CFLAGS} ${OBJS} -o ${NAME}
-		@echo "$(GREEN)Creating ./phonebook ...$(DEF_COLOR)"
+		@echo "$(GREEN)Creating ./sed...$(DEF_COLOR)"
 
 ${OBJS_DIR}%.o:	$(SRCS_DIR)%.cpp
 		@$(CC) $(CFLAGS) -c $^ -o $@
