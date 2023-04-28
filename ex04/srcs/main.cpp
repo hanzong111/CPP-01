@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 16:41:59 by ojing-ha          #+#    #+#             */
-/*   Updated: 2023/03/08 01:02:05 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2023/04/28 15:17:11 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_replace(std::string name, std::string find, std::string replace)
 	}
 	if(!infile)
 	{
-		// remove((name + ".replace").c_str());
+		remove((name + ".replace").c_str());
 		std::cerr << name + " cannot be opened" << std::endl;
 		return ;
 	}
@@ -57,7 +57,7 @@ int	main(int argc, char **argv)
 	if (argc != 4)
 	{
 		std::cout << "Please follow the following format :" << std::endl;
-		std::cout << "./a.out [file_to_open] [str_find] [str_replace]" << std::endl;
+		std::cout << "./sed [file_to_open] [str_find] [str_replace]" << std::endl;
 		return (0);
 	}
 	ft_replace(argv[1], argv[2], argv[3]);
